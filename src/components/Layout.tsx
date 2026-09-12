@@ -12,13 +12,13 @@ export function Layout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-slate-100 font-sans flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-dark-900 text-slate-100 font-sans flex flex-col relative overflow-x-clip">
       {/* Background Motif */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30">
         <div className="rope-arc"></div>
       </div>
 
-      <main className="flex-1 relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-8">
+      <main className="flex-1 relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-8">
         <Outlet />
       </main>
 
