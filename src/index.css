@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-900: #0B0D10;
+  --color-dark-800: #12151A;
+  --color-dark-700: #1C2128;
+  --color-accent: #06b6d4; /* Cyan */
+  --color-accent-hover: #0891b2;
+  --color-accent-light: #67e8f9;
+  
+  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-display: "Teko", "Impact", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-slate-100;
+  }
+}
+
+.rope-arc {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+  animation: arc-swing 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes arc-swing {
+  0% { transform: rotate(-15deg) scale(0.9); }
+  100% { transform: rotate(15deg) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rope-arc {
+    animation: none;
+    transform: rotate(0) scale(1);
+    opacity: 0.1;
+  }
+}
