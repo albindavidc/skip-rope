@@ -1,13 +1,31 @@
-export type SkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
+export type SkillLevel = number | null;
+
+export interface SkillMedia {
+  thumbnailImage: string;
+  demoGif: string | null;
+  demoGifAlt: string;
+  durationHint: number;
+}
 
 export interface Skill {
   id: string;
   name: string;
+  alternativeNames: string[];
+  categories: string[];
   level: SkillLevel;
+  prerequisites: string[];
   description: string;
-  cue: string;
-  prerequisites?: string[];
-  focus: string[];
+  coachingCues: string[];
+  commonMistakes: string[];
+  progressions: string[];
+  media: SkillMedia;
+}
+
+export interface Combo {
+  id: string;
+  name: string;
+  steps: string[];
+  description: string;
 }
 
 export interface RopeType {
@@ -24,16 +42,16 @@ export interface RopeType {
 
 export interface WorkoutConfig {
   rounds: number;
-  workDuration: number; // in seconds
-  restDuration: number; // in seconds
-  warmupDuration: number; // in seconds
-  skills?: string[]; // IDs of skills to practice
+  workDuration: number;
+  restDuration: number;
+  warmupDuration: number;
+  skills?: string[];
 }
 
 export interface SessionResult {
   id: string;
   date: string;
-  duration: number; // total active seconds
+  duration: number;
   config: WorkoutConfig;
   estimatedCalories: number;
 }

@@ -9,6 +9,7 @@ import { Home } from './pages/Home';
 import { RopeGuide } from './pages/RopeGuide';
 import { BuyingGuide } from './pages/BuyingGuide';
 import { SkillTree } from './pages/SkillTree';
+import { SkillDetail } from './pages/SkillDetail';
 import { WorkoutTimer } from './pages/WorkoutTimer';
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="ropes" element={<RopeGuide />} />
           <Route path="guide" element={<BuyingGuide />} />
           <Route path="skills" element={<SkillTree />} />
+          <Route path="skills/:id" element={<SkillDetail />} />
           <Route path="workout" element={<WorkoutTimer />} />
         </Route>
       </Routes>
